@@ -14,18 +14,21 @@ remote_file "#{ENV['HOME']}/.config/fish/config.fish" do
   source "./config/config.fish"
 end
 
-remote_directory "#{ENV['HOME']}/.config/fish/functions" do
+directory "#{ENV['HOME']}/.config/fish/functions" do
   action :create
-  source "config/functions"
+end
+
+remote_file "#{ENV['HOME']}/.config/fish/functions/peco_select_history.fish" do
+  source "./config/functions/peco_select_history.fish"
 end
 
 # 更新するときはfisher.fishを消してmitamaeを実行する
 execute "install fisher" do
-  command "curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher"
-  not_if "test -e ~/.config/fish/functions/fisher.fish"
+  command "curl https://git.io/fisher -sLo ~/.config/fish/functions/fisher.fish && fish -c fisher"
+  not_if "fish -c fisher --version"
 end
 
 execute "install theme" do
-  command "fisher add oh-my-fish/theme-bobthefish"
+  command "fish -c \"fisher add oh-my-fish/theme-bobthefish\""
   not_if "fish -c \"fisher ls theme-bobthefish | grep theme-bobthefish\""
 end

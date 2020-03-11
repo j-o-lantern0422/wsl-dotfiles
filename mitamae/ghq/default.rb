@@ -11,7 +11,7 @@ execute "unzip -o ghq_linux_amd64.zip" do
   not_if "ghq --version | grep #{GHQ_VERSION}"
 end
 
-execute "mv ./ghq /usr/local/bin/" do
+execute "sudo mv ./ghq_linux_amd64/ghq /usr/local/bin/" do
   cwd "/tmp"
   not_if "ghq --version | grep #{GHQ_VERSION}"
 end

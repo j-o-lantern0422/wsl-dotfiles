@@ -8,7 +8,7 @@ function fish_user_key_bindings
 end
 
 abbr -a g git
-abbr -a 'gc git commit -m '
+abbr -a gc 'git commit -m '
 abbr -a gs 'git switch -c'
 abbr -a gc 'git checkout'
 abbr -a gp git push origin
