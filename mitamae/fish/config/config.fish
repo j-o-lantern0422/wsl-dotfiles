@@ -1,7 +1,3 @@
-set -x PATH $PATH /usr/local/bin
-set -x PATH $PATH ~/.rbenv/bin
-rbenv init - | source
-
 #peco
 function fish_user_key_bindings
     bind \cr peco_select_history

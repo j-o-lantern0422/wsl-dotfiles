@@ -25,10 +25,5 @@ end
 # 更新するときはfisher.fishを消してmitamaeを実行する
 execute "install fisher" do
   command "curl https://git.io/fisher -sLo ~/.config/fish/functions/fisher.fish && fish -c fisher"
-  not_if "fish -c fisher --version"
-end
-
-execute "install theme" do
-  command "fish -c \"fisher add oh-my-fish/theme-bobthefish\""
-  not_if "fish -c \"fisher ls theme-bobthefish | grep theme-bobthefish\""
+  not_if "fish -c 'fisher --version'"
 end
