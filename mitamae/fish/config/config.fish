@@ -1,14 +1,10 @@
-set -x PATH $PATH /usr/local/bin
-set -x PATH $PATH ~/.rbenv/bin
-rbenv init - | source
-
 #peco
 function fish_user_key_bindings
     bind \cr peco_select_history
 end
 
 abbr -a g git
-abbr -a 'gc git commit -m '
+abbr -a gc 'git commit -m '
 abbr -a gs 'git switch -c'
 abbr -a gc 'git checkout'
 abbr -a gp git push origin
