@@ -9,6 +9,6 @@ end
 
 execute "set peco binary" do
   cwd "/tmp"
-  command "tar xvf #{PECO_FILE} && mv ./peco_linux_amd64/peco /usr/local/bin/"
+  command "tar xvf #{PECO_FILE} && sudo mv ./peco_linux_amd64/peco /usr/local/bin/"
   not_if "peco --version | grep #{PECO_VERSION}"
 end
