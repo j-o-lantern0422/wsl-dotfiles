@@ -8,6 +8,6 @@ end
 
 execute "set hugo binary" do
   cwd "/tmp"
-  command "tar xvf hugo_extended_#{HUGO_VERSION}_Linux-64bit.tar.gz && mv ./hugo /usr/local/bin/"
+  command "tar xvf hugo_extended_#{HUGO_VERSION}_Linux-64bit.tar.gz && sudo mv ./hugo /usr/local/bin/"
   not_if "hugo version | grep #{HUGO_VERSION}"
 end
