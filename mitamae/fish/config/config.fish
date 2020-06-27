@@ -45,8 +45,7 @@ alias cat='bat --paging never'
 
 alias copy="win32yank.exe -i"
 
-set -x PATH $HOME/.anyenv/bin $PATH
-status --is-interactive; and source (anyenv init -|psub)
-
+set -x PATH ~/.anyenv/bin $PATH
+anyenv init - fish | source
 
 cd

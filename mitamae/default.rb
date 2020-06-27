@@ -1,3 +1,4 @@
+package 'unzip'
 include_recipe "fish/default.rb"
 include_recipe "fish-theme/default.rb"
 
