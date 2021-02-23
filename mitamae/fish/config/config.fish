@@ -44,7 +44,4 @@ alias cat='bat --paging never'
 
 alias copy="win32yank.exe -i"
 
-set -x PATH ~/.anyenv/bin $PATH
-anyenv init - fish | source
-
-cd
+source ~/.asdf/asdf.fish
