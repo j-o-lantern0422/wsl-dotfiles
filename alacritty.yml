@@ -1,0 +1,19 @@
+shell:
+  program: /Windows/System32/wsl.exe ~ -d Ubuntu-18.04
+
+font:
+  normal:
+    family: Source Code Pro for Powerline
+
+background_opacity: 0.95
+
+mouse:
+  double_click: { threshold: 300 }
+  triple_click: { threshold: 300 }
+  hide_when_typing: false
+
+mouse_bindings:
+  - { mouse: Right, action: Copy }
+
+key_bindings:
+  - { key: V, mods: Control, action: Paste }
