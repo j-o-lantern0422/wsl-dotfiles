@@ -3,6 +3,10 @@ function fish_user_key_bindings
     bind \cr peco_select_history
 end
 
+function fish_prompt
+    powerline-go -error $status -jobs (jobs -p | wc -l) --shell bare --max-width 40 -hostname-only-if-ssh -priority root,cwd,host,ssh,perms,git-branch,git-status,hg,jobs,exit,cwd-path,user
+end
+
 abbr -a g git
 abbr -a gc 'git commit -m '
 abbr -a gs 'git switch -c'
