@@ -1,4 +1,5 @@
 package 'unzip'
+package 'tig'
 
 ENV["USER"] = ENV["HOME"].split("/").last
 
