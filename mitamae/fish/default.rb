@@ -1,4 +1,14 @@
 
+execute "wget https://github.com/justjanne/powerline-go/releases/download/v1.21.0/powerline-go-linux-amd64 -O /usr/local/bin/powerline-go" do
+  user "root"
+  not_if "test -x /usr/local/bin/powerline-go"
+end
+
+execute "chmod +x /usr/local/bin/powerline-go" do
+  user "root"
+  not_if "test -x /usr/local/bin/powerline-go"
+end
+
 execute "yes | sudo apt-add-repository ppa:fish-shell/release-3 && apt-get update" do
   user "root"
   not_if "grep -R fish-shell /etc/apt/"
