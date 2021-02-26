@@ -7,6 +7,10 @@ function fish_prompt
     powerline-go -error $status -jobs (jobs -p | wc -l) --shell bare --max-width 40 -hostname-only-if-ssh -priority root,cwd,host,ssh,perms,git-branch,git-status,hg,jobs,exit,cwd-path,user
 end
 
+## PATH
+
+set -x GOPATH $HOME/src
+
 abbr -a g git
 abbr -a gc 'git commit -m '
 abbr -a gs 'git switch -c'
@@ -14,7 +18,6 @@ abbr -a gp git push origin
 abbr -a be bundle exec
 abbr -a bi bundle install
 abbr -a dcm docker-compose
-
 
 #repoってするとpecoがリポジトリの一覧を出してくれて、選んだらそこに移動する
 alias repo='cd (ghq root)/(ghq list | peco)'
