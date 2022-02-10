@@ -6,7 +6,7 @@ if `uname -a`.include?("Darwin")
   end
 
   execute "install.sh" do
-    command "install.sh"
+    command "./install.sh"
     cwd "#{ENV['HOME']}/src/github.com/powerline/fonts"
     user "root"
   end
