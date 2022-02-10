@@ -25,6 +25,11 @@ else
     user "root"
     not_if "test -x /usr/local/bin/powerline"
   end
+  remote_file "#{ENV['HOME']}/.config/fish/functions/fish_prompt.fish" do
+    source "./config/functions/fish_prompt.fish"
+    owner ENV["USER"]
+    group ENV["GROUP"]
+  end
 end
 
 unless `uname -a`.include?("Darwin")
