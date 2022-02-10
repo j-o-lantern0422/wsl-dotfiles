@@ -1,14 +1,19 @@
 
 
 if `uname -a`.include?("Darwin")
-  execute "wget https://github.com/justjanne/powerline-go/releases/download/v1.21.0/powerline-go-darwin-amd64 -O /usr/local/bin/powerline-go" do
+  git "#{ENV['HOME']}/src/github.com/powerline/fonts" do
+   repository "https://github.com/powerline/fonts.git"
+  end
+
+  execute "install.sh" do
+    command "install.sh"
+    cwd "#{ENV['HOME']}/src/github.com/powerline/fonts"
     user "root"
-    not_if "test -x /usr/local/bin/powerline-go"
   end
 else
-  execute "wget https://github.com/justjanne/powerline-go/releases/download/v1.21.0/powerline-go-linux-amd64 -O /usr/local/bin/powerline-go" do
+  execute "wget https://github.com/justjanne/powerline-go/releases/download/v1.21.0/powerline-go-linux-amd64 -O /usr/local/bin/powerline" do
     user "root"
-    not_if "test -x /usr/local/bin/powerline-go"
+    not_if "test -x /usr/local/bin/powerline"
   end
 end
 

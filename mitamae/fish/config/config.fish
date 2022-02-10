@@ -4,7 +4,7 @@ function fish_user_key_bindings
 end
 
 function fish_prompt
-    powerline-go -error $status -jobs (jobs -p | wc -l) --shell bare --max-width 40 -hostname-only-if-ssh -priority root,cwd,host,ssh,perms,git-branch,git-status,hg,jobs,exit,cwd-path,user
+    powerline -error $status -jobs (jobs -p | wc -l) --shell bare --max-width 40 -hostname-only-if-ssh -priority root,cwd,host,ssh,perms,git-branch,git-status,hg,jobs,exit,cwd-path,user
 end
 
 abbr -a g git
