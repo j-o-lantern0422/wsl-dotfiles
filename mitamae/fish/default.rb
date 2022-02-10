@@ -9,6 +9,7 @@ if `uname -a`.include?("Darwin")
     command "./install.sh"
     cwd "#{ENV['HOME']}/src/github.com/powerline/fonts"
     user "root"
+    not_if "ls -1 $HOME/Library/Fonts | grep Powerline"
   end
 
   git "#{ENV['HOME']}/src/github.com/dracula/fish" do
