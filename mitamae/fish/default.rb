@@ -10,6 +10,16 @@ if `uname -a`.include?("Darwin")
     cwd "#{ENV['HOME']}/src/github.com/powerline/fonts"
     user "root"
   end
+
+  git "#{ENV['HOME']}/src/github.com/dracula/fish" do
+    repository "https://github.com/dracula/fish.git"
+  end
+
+  execute "copy dracula" do
+    command "cp #{ENV['HOME']}/src/github.com/dracula/fish/conf.d/dracula.fish #{ENV['HOME']}/.config/fish/conf.d/dracula.fish"
+    user ENV["USER"]
+  end
+
 else
   execute "wget https://github.com/justjanne/powerline-go/releases/download/v1.21.0/powerline-go-linux-amd64 -O /usr/local/bin/powerline" do
     user "root"
