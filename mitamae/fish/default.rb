@@ -1,7 +1,15 @@
 
-execute "wget https://github.com/justjanne/powerline-go/releases/download/v1.21.0/powerline-go-linux-amd64 -O /usr/local/bin/powerline-go" do
-  user "root"
-  not_if "test -x /usr/local/bin/powerline-go"
+
+if `uname -a`.include?("Darwin")
+  execute "wget https://github.com/justjanne/powerline-go/releases/download/v1.21.0/powerline-go-darwin-amd64 -O /usr/local/bin/powerline-go" do
+    user "root"
+    not_if "test -x /usr/local/bin/powerline-go"
+  end
+else
+  execute "wget https://github.com/justjanne/powerline-go/releases/download/v1.21.0/powerline-go-linux-amd64 -O /usr/local/bin/powerline-go" do
+    user "root"
+    not_if "test -x /usr/local/bin/powerline-go"
+  end
 end
 
 execute "chmod +x /usr/local/bin/powerline-go" do
@@ -9,7 +17,7 @@ execute "chmod +x /usr/local/bin/powerline-go" do
   not_if "test -x /usr/local/bin/powerline-go"
 end
 
-unless`uname -a`.include?("Darwin")
+unless `uname -a`.include?("Darwin")
   execute "yes | sudo apt-add-repository ppa:fish-shell/release-3 && apt-get update" do
     user "root"
     not_if "grep -R fish-shell /etc/apt/"
