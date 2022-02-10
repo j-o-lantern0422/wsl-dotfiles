@@ -4,7 +4,11 @@ function fish_user_key_bindings
 end
 
 function fish_prompt
+  if test (uname -s) = "Darwin"
+    set dist_name "macOS"
+  else
     powerline -error $status -jobs (jobs -p | wc -l) --shell bare --max-width 40 -hostname-only-if-ssh -priority root,cwd,host,ssh,perms,git-branch,git-status,hg,jobs,exit,cwd-path,user
+  end
 end
 
 abbr -a g git

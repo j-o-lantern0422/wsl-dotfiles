@@ -17,11 +17,6 @@ else
   end
 end
 
-execute "chmod +x /usr/local/bin/powerline-go" do
-  user "root"
-  not_if "test -x /usr/local/bin/powerline-go"
-end
-
 unless `uname -a`.include?("Darwin")
   execute "yes | sudo apt-add-repository ppa:fish-shell/release-3 && apt-get update" do
     user "root"
