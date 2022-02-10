@@ -9,9 +9,11 @@ execute "chmod +x /usr/local/bin/powerline-go" do
   not_if "test -x /usr/local/bin/powerline-go"
 end
 
-execute "yes | sudo apt-add-repository ppa:fish-shell/release-3 && apt-get update" do
-  user "root"
-  not_if "grep -R fish-shell /etc/apt/"
+unless`uname -a`.include?("Darwin")
+  execute "yes | sudo apt-add-repository ppa:fish-shell/release-3 && apt-get update" do
+    user "root"
+    not_if "grep -R fish-shell /etc/apt/"
+  end
 end
 
 package "fish"
