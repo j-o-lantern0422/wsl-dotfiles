@@ -190,7 +190,7 @@ shell:
     program: /bin/bash
     args:
       - -lc
-      - /usr/local/bin/tmux
+      - /opt/homebrew/bin/tmux
 
 
 

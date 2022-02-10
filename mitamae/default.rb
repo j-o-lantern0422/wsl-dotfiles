@@ -5,6 +5,7 @@ ENV["USER"] = ENV["HOME"].split("/").last
 
 if `uname -a`.include?("Darwin")
   ENV["GROUP"] = "staff"
+  package 'tmux'
 else
   ENV["GROUP"] = ENV["USER"]
 end
