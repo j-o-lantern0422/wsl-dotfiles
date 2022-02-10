@@ -3,18 +3,10 @@ package 'tig'
 
 ENV["USER"] = ENV["HOME"].split("/").last
 
-host_os = RUBY_PLATFORM
-case host_os
-when /mswin|msys|mingw|cygwin|bccwin|wince|emc/
-  :windows
-when /darwin|mac os/
+if `uname -a`.include?("Darwin")
   ENV["GROUP"] = "staff"
-when /linux/
-  ENV["GROUP"] = ENV["USER"]
-when /solaris|bsd/
-  :unix
 else
-  :unknown
+  ENV["GROUP"] = ENV["USER"]
 end
 
 include_recipe "asdf/default.rb"
