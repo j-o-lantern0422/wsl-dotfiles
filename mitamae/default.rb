@@ -18,3 +18,5 @@ include_recipe "alacritty/default.rb"
 include_recipe "bat/default"
 include_recipe "peco/default.rb"
 include_recipe "ghq/default.rb"
+
+include_recipe "tmux/default.rb"
