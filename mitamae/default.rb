@@ -3,7 +3,7 @@ package 'tig'
 
 ENV["USER"] = ENV["HOME"].split("/").last
 
-host_os = RbConfig::CONFIG['host_os']
+host_os = RUBY_PLATFORM
 case host_os
 when /mswin|msys|mingw|cygwin|bccwin|wince|emc/
   :windows
