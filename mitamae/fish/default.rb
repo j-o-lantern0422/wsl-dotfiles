@@ -21,6 +21,12 @@ if `uname -a`.include?("Darwin")
     user ENV["USER"]
   end
 
+  remote_file "#{ENV['HOME']}/.config/fish/functions/brew_path.fish" do
+    source "./config/functions/brew_path.fish"
+    owner ENV["USER"]
+    group ENV["GROUP"]
+  end
+
 else
   execute "wget https://github.com/justjanne/powerline-go/releases/download/v1.21.0/powerline-go-linux-amd64 -O /usr/local/bin/powerline" do
     user "root"
