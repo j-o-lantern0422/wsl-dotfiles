@@ -72,6 +72,13 @@ remote_file "#{ENV['HOME']}/.config/fish/functions/peco_select_history.fish" do
   group ENV["GROUP"]
 end
 
+remote_file "#{ENV['HOME']}/.config/fish/functions/peco_kill.fish" do
+  source "./config/functions/peco_kill.fish"
+  owner ENV["USER"]
+  group ENV["GROUP"]
+end
+
+
 # 更新するときはfisher.fishを消してmitamaeを実行する
 execute "install fisher" do
   command "curl https://git.io/fisher -sLo ~/.config/fish/functions/fisher.fish && fish -c fisher"
